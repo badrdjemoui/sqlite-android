@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SqliteApp_badr</string>
+    <string name="surname">surName</string>
+    <string name="name">name</string>
+    <string name="marks">marks</string>
+    <string name="button">Button</string>
+    <string name="add">add</string>
+    <string name="show">show</string>
+    <string name="apdate">update</string>
+    <string name="ID">ID</string>
+
+</resources>
