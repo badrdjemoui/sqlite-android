@@ -8,5 +8,6 @@
     <string name="show">show</string>
     <string name="apdate">update</string>
     <string name="ID">ID</string>
+    <string name="delete">delete</string>
 
 </resources>
