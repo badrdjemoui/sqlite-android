@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -26,12 +26,12 @@
         android:text=""
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="16dp"
-        android:autofillHints="name"
-       />
+
+        android:importantForAutofill="no" tools:targetApi="o" />
 
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/surname"
@@ -48,39 +48,14 @@
         android:text=""
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="92dp"
-
-        android:autofillHints="surname" />
+        android:importantForAutofill="no" tools:targetApi="o" />
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="@string/marks"
-
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="184dp" />
-
-
-
-
-
-    <EditText
-        android:id="@+id/editText_ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="171dp"
-        android:autofillHints="ID" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text="@string/ID"
 
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="184dp" />
@@ -98,7 +73,31 @@
         android:text=""
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="171dp"
-        android:autofillHints="Marks" />
+        android:importantForAutofill="no" tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="@string/ID"
+
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+
+
+
+
+    <EditText
+        android:id="@+id/editText_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="171dp"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <Button
         android:id="@+id/button_add"
@@ -120,6 +119,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/apdate"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="301dp" />
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="301dp" />
 
