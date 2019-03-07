@@ -11,53 +11,74 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
-    EditText editName, editSurname, editMarks,editId;
+    EditText editName, editSurname, editMarks, editId;
     Button btnAddData;
     Button btnviewAll;
     Button btnupdate;
+    Button btndelete;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         myDb = new DatabaseHelper(this);
 
         editName = (EditText) findViewById(R.id.editText_Name);
         editSurname = (EditText) findViewById(R.id.editText_surname);
         editMarks = (EditText) findViewById(R.id.editText_Marks);
-        editId    = (EditText) findViewById(R.id.editText_ID);
+        editId = (EditText) findViewById(R.id.editText_ID);
 
         btnAddData = (Button) findViewById(R.id.button_add);
         btnviewAll = (Button) findViewById(R.id.button_show);
         btnupdate = (Button) findViewById(R.id.button_update);
+        btndelete = (Button) findViewById(R.id.button_delete);
         AddData();
         viewAll();
         UpdateData();
+        deleteData();
+
+    }
+
+
+    public void deleteData() {
+        btndelete.setOnClickListener(new View.OnClickListener() {
+                                         public void onClick(View v) {
+                                             Integer deletRows = myDb.deleteData(editId.getText().toString());
+                                             if (deletRows > 0)
+                                                 Toast.makeText(MainActivity.this, "data deleted", Toast.LENGTH_LONG).show();
+                                             else
+                                                 Toast.makeText(MainActivity.this, "data not deleted", Toast.LENGTH_LONG).show();
+                                         }
+                                     }
+        );
 
     }
 
     public void UpdateData() {
         btnupdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            boolean isUpdate =myDb.updateData(editId.getText().toString(),editName.getText().toString(), editName.getText().toString(), editName.getText().toString());
-            if (isUpdate=true )
-                Toast.makeText(MainActivity.this, "data update", Toast.LENGTH_LONG).show();
-            else
-                Toast.makeText(MainActivity.this, "data not updated", Toast.LENGTH_LONG).show();
+                                         @Override
+                                         public void onClick(View v) {
 
 
-            }
-        }
+                                             boolean isUpdate = myDb.updateData(editId.getText().toString(), editName.getText().toString(), editSurname.getText().toString(), editMarks.getText().toString());
+                                             if (isUpdate = true)
+                                                 Toast.makeText(MainActivity.this, "data update", Toast.LENGTH_LONG).show();
+                                             else
+                                                 Toast.makeText(MainActivity.this, "data not updated", Toast.LENGTH_LONG).show();
+
+
+                                         }
+                                     }
         );
     }
+
     public void AddData() {
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isinserted = myDb.insertData(editName.getText().toString(), editName.getText().toString(), editName.getText().toString());
+                boolean isinserted = myDb.insertData(editName.getText().toString(), editSurname.getText().toString(), editMarks.getText().toString());
                 if (isinserted = true)
                     Toast.makeText(MainActivity.this, "data inserted", Toast.LENGTH_LONG).show();
                 else
@@ -74,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Cursor res = myDb.getAllData();
                         if (res.getCount() == 0) {
-                            showMessage("error","no data");
+                            showMessage("error", "no data");
                             return;
                         }
                         StringBuffer buffer = new StringBuffer();
@@ -83,14 +104,15 @@ public class MainActivity extends AppCompatActivity {
                             buffer.append("name = " + res.getString(1) + "\n");
                             buffer.append("surname = " + res.getString(2) + "\n");
                             buffer.append("marks = " + res.getString(3) + "\n\n");
-                                                  }
-                        showMessage("data",buffer.toString());
+                        }
+                        showMessage("data", buffer.toString());
                     }
                 }
         );
 
     }
-    public void showMessage(String title,String Message){
+
+    public void showMessage(String title, String Message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
