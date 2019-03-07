@@ -1,5 +1,5 @@
 # sqlite-android
-sqlite insert,show and upgrade
+ insert,show ,delete,upgrade and search sqlite data base in android 
 -------------------------------------------
 1:create a project for at least 15 level android and name it "SqliteApp"   
 2:create 2 class java "MainActivity.java" and "DatabaseHelper.java"     
